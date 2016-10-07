@@ -17,10 +17,18 @@ class SystemInfo
     /**
      *  取得 "已備份" 的 日期 資訊 by table name
      */
+    static public function getBackupPath()
+    {
+        return getProjectPath(conf('app.backup_path'));
+    }
+
+    /**
+     *  取得 "已備份" 的 日期 資訊 by table name
+     */
     static public function getBackupDatesByTableName($tableName)
     {
         $filenames = [];
-        $backupPath = getProjectPath(conf('app.backup_path'));
+        $backupPath = self::getBackupPath();
 
         $display = '';
         $files = glob("{$backupPath}/{$tableName}.*.sql");

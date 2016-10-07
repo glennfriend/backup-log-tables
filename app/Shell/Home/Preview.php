@@ -16,7 +16,6 @@ class Preview extends MainController
      */
     public function perform()
     {
-        // conf('db.mysql.user')
         show('<< Preview Mode >>');
         show('');
 
@@ -31,7 +30,8 @@ class Preview extends MainController
         $this->showDatabasesInfos();
 
         show('提示');
-        show('    如果要執行, 請在 command line 後面加上 `yes` 參數');
+        show('    如果要 "預覧", 請在 command line 後面加上 `show` 參數');
+        show('    如果要 "執行", 請在後面加上 `yes` 參數');
         show('');
     }
 

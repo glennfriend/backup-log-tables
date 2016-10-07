@@ -103,7 +103,7 @@ function out($data)
 /**
  *  show message, can write to log
  */
-function show($data, $writeLog=false)
+function show($data=null, $writeLog=false)
 {
     if (is_object($data) || is_array($data)) {
         print_r($data);

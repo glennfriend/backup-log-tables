@@ -8,7 +8,7 @@ require_once __DIR__ . '/core/bootstrap.php';
 //  start
 // --------------------------------------------------------------------------------
 
-if ('yes' === getParam(0)) {
+if (in_array(getParam(0), ['show', 'yes'])) {
     $controller = new App\Shell\Home\Todo();
     $controller->perform();
 }
