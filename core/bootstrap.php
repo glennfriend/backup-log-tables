@@ -14,7 +14,14 @@ $initialize = function()
     /**
      *  load helper function
      */
-    include ('helper.php');
+    include ('global-helper.php');
+    if (isCli()) {
+        include ('cli-helper.php');
+    }
+    else {
+        include ('web-helper.php');
+    }
+
     $basePath = getProjectPath();
 
     /**

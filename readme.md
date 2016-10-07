@@ -1,8 +1,8 @@
 ## backup-log-tables
-- 用來備份 database 中可以清除掉的 log
+- database tabels 之中有些是存放 logs, 該程式用來 dump logs-tables
+- 輸出格式為 SQL file, 日後有需要可以手動重新匯入至一個 table
 - 以 一個月 為單位建立 sql backup
-- 你可以手動將單一個 sql backup 恢復至一個 table
-- 備份的 sql 裡面包含有的語句敘述
+- 注意, 備份的 sql 裡面包含的語句敘述
     - drop table 
     - create table schema
     - insert data
