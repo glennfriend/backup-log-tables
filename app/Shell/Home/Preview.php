@@ -8,13 +8,13 @@ use App\Business\Backup\Manager;
 /**
  *
  */
-class Basic extends MainController
+class Preview extends MainController
 {
 
     /**
      *
      */
-    public function backup()
+    public function perform()
     {
         // conf('db.mysql.user')
         show('<< Preview Mode >>');
@@ -34,6 +34,10 @@ class Basic extends MainController
         show('    如果要執行, 請在 command line 後面加上 `yes` 參數');
         show('');
     }
+
+    // --------------------------------------------------------------------------------
+    //  private
+    // --------------------------------------------------------------------------------
 
     /**
      *  取得備份目錄的檔案
