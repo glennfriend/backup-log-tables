@@ -4,6 +4,7 @@ use App\Shell\MainController;
 use App\Model\Access;
 use App\Business\Backup\Calendar;
 use App\Business\Backup\SystemInfo;
+use App\Business\Backup\Manager;
 
 /**
  *
@@ -17,6 +18,9 @@ class Basic extends MainController
     public function backup()
     {
         // conf('db.mysql.user')
+        show('<< Preview Mode >>');
+        show('');
+
         show('Current');
         show('    ' . date('Y-m-d H:i:s'));
         show('');
@@ -24,19 +28,15 @@ class Basic extends MainController
         show('備份現況');
         $this->showBackups();
 
-        echo <<<EOD
-    [Tip]
-        01 ~ 12 - Backuped
-        __      - Not backup
-        **      - 這次備份的目標, 如果沒有該月份的資料, 將不會產生備份檔
-EOD;
-        echo "\n\n";
-
         // show('最後一次備份');
         // $this->showLastBackups();
 
         show('資料庫現況');
         $this->showDatabasesInfos();
+
+        show('提示');
+        show('    如果要執行, 請在 command line 後面加上 `yes` 參數');
+        show('');
     }
 
     /**
@@ -46,6 +46,13 @@ EOD;
     private function showBackups()
     {
         $tables = $this->getBackupTables();
+        if (!$tables) {
+            echo '    ';
+            echo '沒有設定 config 內容';
+            echo "\n\n";
+            return;
+        }
+
         foreach ($tables as $table) {
 
             //
@@ -101,6 +108,14 @@ EOD;
 
             echo "\n";
         }
+
+        echo <<<EOD
+    [Tip]
+        01 ~ 12 - Backuped
+        __      - Not backup
+        **      - 這次備份的目標, 如果沒有該月份的資料, 將不會產生備份檔
+EOD;
+        echo "\n\n";
 
     }
 
@@ -256,8 +271,6 @@ EOD;
 
             echo "\n";
         }
-
-        echo "\n";
     }
 
     /**
