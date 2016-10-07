@@ -1,8 +1,6 @@
 <?php
 namespace App\Shell;
 
-use App\Utility\Console\CliManager;
-
 /**
  *
  */
@@ -21,14 +19,10 @@ class BaseController
      */
     public function __call($method, $controllerArgs)
     {
-        global $argv; // by command line
-
         if (!method_exists($this, $method)) {
             throw new \Exception("API method '{$method}' is not exist!");
             exit;
         }
-
-        CliManager::init($argv);
 
         // 如果有回傳值, 則不往下執行
         $result = $this->initBefore();

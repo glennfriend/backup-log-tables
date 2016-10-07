@@ -1,8 +1,11 @@
 <?php
 use App\Utility\Config\Config;
+use App\Utility\Console\CliManager;
 
 $initialize = function()
 {
+    global $argv;
+
     // --------------------------------------------------------------------------------
     //  start
     // --------------------------------------------------------------------------------
@@ -11,18 +14,13 @@ $initialize = function()
     ini_set('html_errors','Off');
     ini_set('display_errors', 'Off');
 
+
     /**
-     *  load helper function
+     *  load global helper function
      */
     include ('global-helper.php');
-    if (isCli()) {
-        include ('cli-helper.php');
-    }
-    else {
-        include ('web-helper.php');
-    }
-
     $basePath = getProjectPath();
+
 
     /**
      *  load composer
@@ -43,6 +41,18 @@ $initialize = function()
         $loader->register();
     };
     $loadComposer($basePath);
+
+    /**
+     *  load other helper function
+     */
+    if (isCli()) {
+        include ('cli-helper.php');
+        CliManager::init($argv);
+    }
+    else {
+        include ('web-helper.php');
+    }
+
 
     // init config
     $errorMessage = Config::init(
