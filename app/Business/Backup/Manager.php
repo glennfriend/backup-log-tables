@@ -7,6 +7,9 @@ use App\Business\Backup\Calendar;
  */
 class Manager
 {
+
+    const YEAR_MIN_BETWEEN = 5;
+
     /**
      *  @param string $table     table name
      *  @param string $dateField create timestamp
@@ -113,10 +116,16 @@ class Manager
             return $result;
         }
 
-        $result['results']['first'] = $row['create_time'];
+        $currentYear = date('Y');
+        $yearMin = $currentYear - self::YEAR_MIN_BETWEEN;
+
+        $result['results']['first'] = $row[$this->dateField];
+        if ($result['results']['first'] <= $yearMin) {
+            $result['results']['first'] = $yearMin . '-01-01';
+        }
 
         $row = $access->getLastDate();
-        $result['results']['last'] = $row['create_time'];
+        $result['results']['last'] = $row[$this->dateField];
 
         return $result;
     }

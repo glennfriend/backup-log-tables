@@ -14,10 +14,10 @@ composer install
 ### 加快備份的速度
 - 對搜尋的 日期欄位 做 index 以加速備份時間
 
-### 日期欄位的測試
+### 可以用來判斷 日期 的 欄位格式
 - [x] timestamp
-- [ ] datetime
-- [ ] date
+- [x] datetime
+- [x] date
 
 ### 備份的檔案名稱
 ```
