@@ -52,6 +52,11 @@ class Todo extends MainController
         $backupPath = SystemInfo::getBackupPath();
         $prefix = 'mysqldump -u '. $dbUser .' --password="'. $dbPwd .'" --databases '. $dbName . ' ';
 
+
+        show('Backup Path');
+        show('    ' . $backupPath);
+        show();
+
         $lastTipSqlCommand = [];
         foreach ($tablesInfos as $tableInfo) {
 
@@ -83,18 +88,19 @@ class Todo extends MainController
                 $saveTo             = $backupPath . '/' . $saveFile;
                 $successTo          = $backupPath . '/' . $successFile;
                 $where              = "{$dateField} > '{$dateStart}' AND {$dateField} < '{$dateEnd}'";
-                $conditionCommand   = '--tables '. $table .' --where="'. $where .'" > '. $saveTo;
-                $execCommand        = $prefix .' '. $conditionCommand;
+                $condition1Command  = '--tables '. $table .' --where="'. $where .'"';
+                $condition2Command  = $condition1Command . ' > '. $saveTo;
+                $execCommand        = $prefix .' '. $condition2Command;
 
 
                 $execCommandCount++;
                 if ($isDebug) {
                     // 假裝 執行
-                    show('   ' . $conditionCommand);
+                    show('   ' . $condition1Command);
                 }
                 elseif ($isExec) {
                     // 真的執行
-                    show("    save to {$successTo}");
+                    show("    save >> {$successFile}");
 
                     shell_exec($execCommand);
                     if (!file_exists($saveTo)) {
