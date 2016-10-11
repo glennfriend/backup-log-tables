@@ -12,6 +12,7 @@
 ```sh
 cp example.config.php config.php
 vi config.php
+php autorun.php
 ```
 
 ### Execute

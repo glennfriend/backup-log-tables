@@ -4,7 +4,6 @@
 ```sh
 composer self-update
 composer install
-php autorun.php
 ```
 
 ### 備份的 SQL file 裡面包含的語句敘述
