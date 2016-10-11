@@ -16,11 +16,15 @@ class Preview extends MainController
      */
     public function perform()
     {
-        show('<< Preview Mode >>');
+        show('<< Display Mode >>');
         show('');
 
         show('Current');
         show('    ' . date('Y-m-d H:i:s'));
+        show('');
+
+        show('Backup Path');
+        show('    ' . SystemInfo::getBackupPath());
         show('');
 
         show('備份現況');
@@ -30,7 +34,7 @@ class Preview extends MainController
         $this->showDatabasesInfos();
 
         show('提示');
-        show('    如果要 "預覧", 請在 command line 後面加上 `show` 參數');
+        show('    如果要 "預覧", 請在 command line 後面加上 `debug` 參數');
         show('    如果要 "執行", 請在後面加上 `yes` 參數');
         show('');
     }

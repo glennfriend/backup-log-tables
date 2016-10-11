@@ -53,10 +53,6 @@ class Todo extends MainController
         $prefix = 'mysqldump -u '. $dbUser .' --password="'. $dbPwd .'" --databases '. $dbName . ' ';
 
 
-        show('Backup Path');
-        show('    ' . $backupPath);
-        show();
-
         $lastTipSqlCommand = [];
         foreach ($tablesInfos as $tableInfo) {
 
