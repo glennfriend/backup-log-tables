@@ -63,7 +63,7 @@ function perform($commands)
 function createVarFolder()
 {
     $dir = __DIR__;
-    system("mkdir -p {$dir}/var/cache");
+    system("mkdir -p {$dir}/var");
 
     system("chmod -R 777 {$dir}/var");
 }
