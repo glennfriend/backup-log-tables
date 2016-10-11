@@ -7,10 +7,6 @@ perform([
         'cmd'   => 'php -v',
     ],
     [
-        'title' => 'clear cache',
-        'cmd'   => 'php bin/cache-clean.php',
-    ],
-    [
         'title' => 'create var folders',
         'funt'  => "createVarFolder",
     ],
@@ -63,7 +59,7 @@ function perform($commands)
 function createVarFolder()
 {
     $dir = __DIR__;
-    system("mkdir -p {$dir}/var");
+    system("mkdir -p {$dir}/var/backup");
 
     system("chmod -R 777 {$dir}/var");
 }
