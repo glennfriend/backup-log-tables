@@ -25,5 +25,9 @@ return [
             'table'             => 'your_table_name',
             'date_field_name'   => 'your_create_datetime_field_name',
         ],
+        [
+            'table'             => 'your_table_name_2',
+            'date_field_name'   => 'your_create_datetime_field_name',
+        ],
     ],
 ];
