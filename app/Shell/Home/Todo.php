@@ -96,7 +96,7 @@ class Todo extends MainController
                 }
                 elseif ($isExec) {
                     // 真的執行
-                    show("    save >> {$successFile}");
+                    show("    save -> {$successFile}");
 
                     shell_exec($execCommand);
                     if (!file_exists($saveTo)) {
