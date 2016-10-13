@@ -59,8 +59,8 @@ function perform($commands)
 function createVarFolder()
 {
     $dir = __DIR__;
-    system("mkdir -p {$dir}/var/backup");
+    system("mkdir -p '{$dir}/var/backup'");
 
-    system("chmod -R 777 {$dir}/var");
+    system("chmod -R 777 '{$dir}/var'");
 }
 

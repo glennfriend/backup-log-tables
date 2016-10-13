@@ -85,7 +85,7 @@ class Todo extends MainController
                 $successTo          = $backupPath . '/' . $successFile;
                 $where              = "{$dateField} > '{$dateStart}' AND {$dateField} < '{$dateEnd}'";
                 $condition1Command  = '--tables '. $table .' --where="'. $where .'"';
-                $condition2Command  = $condition1Command . ' > '. $saveTo;
+                $condition2Command  = $condition1Command . ' > "'. $saveTo .'"';
                 $execCommand        = $prefix .' '. $condition2Command;
 
 

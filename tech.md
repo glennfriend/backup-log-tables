@@ -1,4 +1,4 @@
-## backup-log-tables
+## backup-log-tables-tool
 
 ### Install & update
 ```sh

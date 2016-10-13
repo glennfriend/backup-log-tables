@@ -121,7 +121,7 @@ class Preview extends MainController
     [Tip]
         01 ~ 12 - Backuped
         __      - Not backup
-        **      - 這次備份的目標, 如果沒有該月份的資料, 將不會產生備份檔
+        **      - 這次備份的目標, 即使沒有該月份的資料, 一樣會產生備份檔
 EOD;
         echo "\n\n";
 

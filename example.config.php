@@ -23,7 +23,7 @@ return [
     'settings' => [
         [
             'table'             => 'your_table_name',
-            'date_field_name'   => 'your_create_timestamp_field_name',
+            'date_field_name'   => 'your_create_datetime_field_name',
         ],
     ],
 ];
